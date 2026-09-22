@@ -108,22 +108,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!name && !phone) {
         return {
-          payload: 'BEGIN:VCARD\nVERSION:3.0\nFN:이름\nEND:VCARD',
+          payload: 'BEGIN:VCARD\r\nVERSION:3.0\r\nFN:이름\r\nEND:VCARD',
           displayText: '연락처: (이름 또는 번호를 입력해주세요)'
         };
       }
 
-      let vcard = 'BEGIN:VCARD\nVERSION:3.0\n';
-      if (name) vcard += `FN:${escapeVCard(name)}\nN:${escapeVCard(name)};;;;\n`;
-      if (org) vcard += `ORG:${escapeVCard(org)}\n`;
-      if (phone) vcard += `TEL;TYPE=CELL:${escapeVCard(phone)}\n`;
-      if (email) vcard += `EMAIL:${escapeVCard(email)}\n`;
-      if (url) vcard += `URL:${escapeVCard(url)}\n`;
+      let vcard = 'BEGIN:VCARD\r\nVERSION:3.0\r\n';
+      if (name) vcard += `FN:${escapeVCard(name)}\r\nN:${escapeVCard(name)};;;;\r\n`;
+      if (org) vcard += `ORG:${escapeVCard(org)}\r\n`;
+      if (phone) vcard += `TEL;TYPE=CELL:${escapeVCard(phone)}\r\n`;
+      if (email) vcard += `EMAIL:${escapeVCard(email)}\r\n`;
+      if (url) vcard += `URL:${escapeVCard(url)}\r\n`;
       vcard += 'END:VCARD';
 
       return {
         payload: vcard,
-        displayText: `연락처: ${name || '무명'} ${phone ? '(' + phone + ')' : ''}`
+        displayText: `연락처: ${name || '이름 없음'} ${phone ? '(' + phone + ')' : ''}`
       };
     }
 
